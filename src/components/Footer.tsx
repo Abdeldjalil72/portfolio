@@ -36,9 +36,8 @@ export const Footer: React.FC = () => {
   };
 
   useEffect(() => {
-    // Setup animated background video
+    // Autoplay background cosmic video
     if (videoRef.current) {
-      videoRef.current.src = "/flow-video.mp4";
       videoRef.current.play().catch(() => {});
     }
 
@@ -81,13 +80,16 @@ export const Footer: React.FC = () => {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <video
           ref={videoRef}
-          src="/flow-video.mp4"
+          poster="/blackhole-poster.jpg"
           autoPlay
           muted
           loop
           playsInline
           className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-y-[-1]"
-        />
+        >
+          <source src="/blackhole.webm" type="video/webm" />
+          <source src="/blackhole.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-white/85 md:bg-white/75 dark:bg-black/80 dark:md:bg-black/60 transition-colors duration-300" />
         <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-bg to-transparent" />
       </div>
