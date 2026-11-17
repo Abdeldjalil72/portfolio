@@ -44,18 +44,27 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between p-6 md:p-10">
-      {/* Top Left */}
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-xs text-muted uppercase tracking-[0.3em]"
-      >
-        Abdeldjalil Bouchama • Portfolio '26
-      </motion.div>
+      {/* Top Bar with Brand & Skip */}
+      <div className="flex items-center justify-between w-full">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-xs text-muted uppercase tracking-[0.3em]"
+        >
+          Abdeldjalil Bouchama • Portfolio '26
+        </motion.div>
+
+        <button
+          onClick={onComplete}
+          className="text-[11px] text-muted hover:text-text-primary uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full border border-stroke/70 hover:border-stroke transition-colors cursor-pointer"
+        >
+          Skip
+        </button>
+      </div>
 
       {/* Center Words */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden h-[100px] flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden h-[120px] w-full max-w-xl flex items-center justify-center px-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={wordIndex}
@@ -63,7 +72,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -40, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80 text-center leading-tight"
           >
             {words[wordIndex]}
           </motion.div>

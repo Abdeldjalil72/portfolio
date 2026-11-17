@@ -94,15 +94,15 @@ export const Hero: React.FC = () => {
           FULL-STACK WEB DEVELOPER • AI & SOFTWARE ENGINEER
         </div>
         
-        <h1 className="flex flex-col items-center font-display italic leading-[0.88] tracking-tight text-text-primary mb-6 py-2">
-          <span className="flex overflow-hidden py-1 whitespace-nowrap text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+        <h1 className="flex flex-col items-center font-display italic leading-[0.88] tracking-tight text-text-primary mb-6 py-2 max-w-full">
+          <span className="flex overflow-hidden py-1 whitespace-nowrap text-[2.6rem] xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
             {"ABDELDJALIL".split("").map((char, index) => (
               <span key={index} className="name-char inline-block transform-gpu origin-bottom">
                 {char}
               </span>
             ))}
           </span>
-          <span className="flex overflow-hidden py-1 whitespace-nowrap text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+          <span className="flex overflow-hidden py-1 whitespace-nowrap text-[2.6rem] xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
             {"BOUCHAMA".split("").map((char, index) => (
               <span key={index} className="name-char inline-block transform-gpu origin-bottom">
                 {char}
@@ -111,25 +111,25 @@ export const Hero: React.FC = () => {
           </span>
         </h1>
         
-        <p className="blur-in text-xl md:text-2xl font-light mb-5 flex items-center gap-2 flex-wrap justify-center">
+        <p className="blur-in text-lg sm:text-xl md:text-2xl font-light mb-5 flex items-center gap-2 flex-wrap justify-center">
           A <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block">{roles[roleIndex]}</span> based in Constantine, Algeria.
         </p>
         
-        <p className="blur-in text-base md:text-lg text-muted max-w-xl mb-8 md:mb-10">
+        <p className="blur-in text-sm sm:text-base md:text-lg text-muted max-w-xl mb-8 md:mb-10 px-2 sm:px-0">
           Specializing in robust full-stack web architectures, scalable multi-tenant SaaS systems, and intelligent data-driven applications.
         </p>
 
-        <div className="blur-in flex flex-wrap gap-4 justify-center">
+        <div className="blur-in flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center w-full max-w-xs sm:max-w-none">
           <a 
             href="#projects" 
             onClick={(e) => {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="group relative rounded-full inline-flex"
+            className="group relative rounded-full inline-flex w-full sm:w-auto"
           >
             <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative bg-text-primary text-bg group-hover:bg-bg group-hover:text-text-primary rounded-full text-sm px-7 py-3.5 transition-all group-hover:scale-105">
+            <div className="relative w-full bg-text-primary text-bg group-hover:bg-bg group-hover:text-text-primary rounded-full text-sm px-7 py-3.5 transition-all group-hover:scale-105 flex items-center justify-center min-h-[44px]">
               Explore Projects
             </div>
           </a>
@@ -139,11 +139,11 @@ export const Hero: React.FC = () => {
             download="Abdeldjalil_Bouchama_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative rounded-full inline-flex"
+            className="group relative rounded-full inline-flex w-full sm:w-auto"
             title="Download Abdeldjalil Bouchama's CV (PDF)"
           >
             <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative border-2 border-stroke bg-surface/90 text-text-primary group-hover:border-transparent rounded-full text-sm px-6 py-3.5 transition-all group-hover:scale-105 flex items-center gap-2 shadow-sm">
+            <div className="relative w-full border-2 border-stroke bg-surface/90 text-text-primary group-hover:border-transparent rounded-full text-sm px-6 py-3.5 transition-all group-hover:scale-105 flex items-center justify-center gap-2 shadow-sm min-h-[44px]">
               <FileDown className="w-4 h-4 text-[#89AACC]" />
               <span>Resume / CV</span>
             </div>
@@ -155,10 +155,10 @@ export const Hero: React.FC = () => {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="group relative rounded-full inline-flex"
+            className="group relative rounded-full inline-flex w-full sm:w-auto"
           >
             <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative border-2 border-stroke bg-bg text-text-primary group-hover:border-transparent rounded-full text-sm px-7 py-3.5 transition-all group-hover:scale-105">
+            <div className="relative w-full border-2 border-stroke bg-bg text-text-primary group-hover:border-transparent rounded-full text-sm px-7 py-3.5 transition-all group-hover:scale-105 flex items-center justify-center min-h-[44px]">
               Get in Touch
             </div>
           </a>

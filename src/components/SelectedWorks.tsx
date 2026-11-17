@@ -61,7 +61,7 @@ export const SelectedWorks: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-20px" }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
         >
           <div>
@@ -89,7 +89,7 @@ export const SelectedWorks: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
-              className={`group relative overflow-hidden bg-surface border border-stroke rounded-3xl min-h-[460px] flex flex-col justify-end p-6 md:p-8 ${project.span}`}
+              className={`group relative overflow-hidden bg-surface border border-stroke rounded-3xl min-h-[380px] sm:min-h-[440px] md:min-h-[460px] flex flex-col justify-end p-5 sm:p-6 md:p-8 ${project.span}`}
             >
               {/* Card Media (Video or Image) */}
               {project.videoSrc ? (
@@ -115,9 +115,9 @@ export const SelectedWorks: React.FC = () => {
               {/* Content Overlay */}
               <div className="relative z-10 flex flex-col justify-between h-full">
                 
-                {/* Top Row: Type Badge */}
-                <div className="flex items-center justify-between gap-3 mb-6">
-                  <span className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-[#89AACC] shadow-sm">
+                {/* Top Row: Type Badge & Action Link */}
+                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4 sm:mb-6">
+                  <span className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-[#89AACC] shadow-sm min-h-[32px] inline-flex items-center">
                     {project.type}
                   </span>
                   
@@ -125,7 +125,7 @@ export const SelectedWorks: React.FC = () => {
                   {project.actionType === 'request' && (
                     <a
                       href="mailto:bouchamaabdeldjalil@gmail.com?subject=Code%20Request%3A%20Multi-Tenant%20Inventory%20SaaS"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white hover:border-[#89AACC] transition-colors shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white hover:border-[#89AACC] transition-colors shadow-sm min-h-[32px]"
                       title="Contact to request code repository access"
                     >
                       <Lock className="w-3 h-3 text-[#89AACC]" />
@@ -134,7 +134,7 @@ export const SelectedWorks: React.FC = () => {
                   )}
 
                   {project.actionType === 'academic' && (
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white shadow-sm">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white shadow-sm min-h-[32px]">
                       <GraduationCap className="w-3.5 h-3.5 text-[#89AACC]" />
                       <span>{project.actionText}</span>
                     </div>
@@ -148,7 +148,7 @@ export const SelectedWorks: React.FC = () => {
                       className="group/btn relative inline-flex rounded-full"
                     >
                       <span className="absolute inset-[-1.5px] rounded-full accent-gradient opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                      <div className="relative px-3.5 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white flex items-center gap-1.5 shadow-sm">
+                      <div className="relative px-3.5 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white flex items-center gap-1.5 shadow-sm min-h-[32px]">
                         <Eye className="w-3.5 h-3.5 text-[#89AACC]" />
                         <span>{project.actionText}</span>
                         <ExternalLink className="w-3 h-3 text-white/60" />
@@ -159,11 +159,11 @@ export const SelectedWorks: React.FC = () => {
 
                 {/* Bottom Details */}
                 <div className="mt-auto">
-                  <h3 className="text-2xl md:text-3xl font-medium text-white mb-3 leading-tight group-hover:text-[#89AACC] transition-colors">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-white mb-2.5 sm:mb-3 leading-tight group-hover:text-[#89AACC] transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-sm md:text-base text-white/80 mb-5 max-w-2xl leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-white/80 mb-4 sm:mb-5 max-w-2xl leading-relaxed">
                     {project.description}
                   </p>
 

@@ -81,4 +81,4 @@ A high-performance, editorial portfolio website showcasing full-stack web applic
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).

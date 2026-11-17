@@ -42,7 +42,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({ text, italicWord, 
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-20px" }}
     >
       {words.map((word, index) => {
         const isItalic = italicWord && word.toLowerCase().includes(italicWord.toLowerCase());

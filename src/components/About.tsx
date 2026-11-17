@@ -42,7 +42,7 @@ export const About: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-20px" }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
         >
           <div>
@@ -70,7 +70,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="md:col-span-4 relative overflow-hidden bg-surface border border-stroke rounded-3xl group min-h-[460px] flex flex-col justify-end p-6 md:p-8 shadow-sm dark:shadow-none"
+            className="md:col-span-4 relative overflow-hidden bg-surface border border-stroke rounded-3xl group min-h-[340px] sm:min-h-[420px] md:min-h-[460px] flex flex-col justify-end p-5 sm:p-6 md:p-8 shadow-sm dark:shadow-none"
           >
             <img 
               src="/profile.jpg" 
@@ -95,7 +95,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="md:col-span-8 bg-surface border border-stroke rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm dark:shadow-none transition-all duration-300"
+            className="md:col-span-8 bg-surface border border-stroke rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between shadow-sm dark:shadow-none transition-all duration-300"
           >
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -124,7 +124,7 @@ export const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-stroke/50 flex flex-wrap items-center justify-between gap-4">
+            <div className="pt-6 mt-6 border-t border-stroke/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-3">
                 <div className="flex items-center gap-2 text-xs md:text-sm text-muted">
                   <MapPin className="w-4 h-4 text-[#89AACC]" />
@@ -136,7 +136,7 @@ export const About: React.FC = () => {
                   download="Abdeldjalil_Bouchama_CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-text-primary hover:text-[#89AACC] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-text-primary hover:text-[#89AACC] transition-colors min-h-[36px]"
                   title="Download Curriculum Vitae"
                 >
                   <FileDown className="w-3.5 h-3.5 text-[#89AACC]" />
@@ -165,7 +165,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="md:col-span-12 bg-surface border border-stroke rounded-3xl p-6 md:p-8 shadow-sm dark:shadow-none transition-all duration-300"
+            className="md:col-span-12 bg-surface border border-stroke rounded-3xl p-5 sm:p-6 md:p-8 shadow-sm dark:shadow-none transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2.5 rounded-full bg-surface border border-stroke text-text-primary">

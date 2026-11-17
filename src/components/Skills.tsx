@@ -70,7 +70,7 @@ export const Skills: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-20px" }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
         >
           <div>
@@ -100,10 +100,10 @@ export const Skills: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.08, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className={`${cat.span} bg-surface/40 hover:bg-surface/70 border border-stroke rounded-3xl p-6 md:p-8 flex flex-col justify-between transition-colors duration-300`}
+                className={`${cat.span} bg-surface border border-stroke rounded-3xl p-5 sm:p-6 md:p-8 flex flex-col justify-between shadow-sm dark:shadow-none transition-colors duration-300`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                     <div className="flex items-center gap-3">
                       <div className="p-2.5 rounded-full bg-surface border border-stroke text-text-primary">
                         <Icon className="w-5 h-5 text-[#89AACC]" />
@@ -111,7 +111,7 @@ export const Skills: React.FC = () => {
                       <h3 className="text-lg font-medium text-text-primary">{cat.title}</h3>
                     </div>
                     {cat.featured && (
-                      <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[11px] font-medium accent-gradient text-bg font-sans">
+                      <span className="inline-block px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-medium accent-gradient text-bg font-sans">
                         Specialized Focus
                       </span>
                     )}

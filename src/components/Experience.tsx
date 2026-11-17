@@ -43,7 +43,7 @@ export const Experience: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-20px" }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
         >
           <div>
@@ -71,7 +71,7 @@ export const Experience: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="group p-6 md:p-8 rounded-3xl bg-surface border border-stroke shadow-sm dark:shadow-none hover:border-[#89AACC]/40 transition-all duration-300"
+              className="group p-5 sm:p-6 md:p-8 rounded-3xl bg-surface border border-stroke shadow-sm dark:shadow-none hover:border-[#89AACC]/40 transition-all duration-300"
             >
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                 <div className="flex items-start gap-4">
