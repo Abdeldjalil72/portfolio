@@ -133,20 +133,16 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:block w-px h-5 bg-stroke mx-1.5" />
 
         {/* Desktop Say Hi Button */}
-        <a 
-          href="#contact" 
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick("Contact");
-            document.getElementById("contact")?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="hidden md:inline-flex group relative ml-1 text-xs sm:text-sm rounded-full items-center"
+        <button 
+          type="button"
+          onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}
+          className="hidden md:inline-flex group relative ml-1 text-xs sm:text-sm rounded-full items-center cursor-pointer"
         >
           <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="relative px-4 py-2 bg-surface backdrop-blur-md rounded-full flex items-center gap-1.5 text-text-primary transition-colors min-h-[36px]">
             Say hi <ArrowUpRight className="w-3.5 h-3.5" />
           </div>
-        </a>
+        </button>
 
         {/* Mobile Hamburger Toggle Button */}
         <button
@@ -194,20 +190,19 @@ export const Navbar: React.FC = () => {
             <div className="w-full h-px bg-stroke/60 my-1.5" />
 
             {/* Mobile "Say hi" CTA inside menu */}
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("Contact");
-                document.getElementById("contact")?.scrollIntoView({ behavior: 'smooth' });
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent('open-contact-modal'));
               }}
-              className="w-full relative rounded-2xl overflow-hidden min-h-[44px] flex items-center justify-center p-[1px] group"
+              className="w-full relative rounded-2xl overflow-hidden min-h-[44px] flex items-center justify-center p-[1px] group cursor-pointer"
             >
               <div className="absolute inset-0 accent-gradient" />
               <div className="relative w-full h-full py-2.5 bg-surface rounded-[15px] flex items-center justify-center gap-2 text-sm font-medium text-text-primary">
                 Say hi <ArrowUpRight className="w-4 h-4" />
               </div>
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

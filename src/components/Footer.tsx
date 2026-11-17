@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
 import gsap from 'gsap';
-import { Mail, MapPin, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { Mail, MapPin, Check, Copy, ArrowUpRight, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ContactModal } from './ContactModal';
 
 // Social contact links
 const GITHUB_URL = "https://github.com/Abdeldjalil72";
@@ -17,6 +18,13 @@ export const Footer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenContact = () => setIsContactModalOpen(true);
+    window.addEventListener('open-contact-modal', handleOpenContact);
+    return () => window.removeEventListener('open-contact-modal', handleOpenContact);
+  }, []);
 
   const handleCopyEmail = async () => {
     try {
@@ -114,23 +122,37 @@ export const Footer: React.FC = () => {
         <p className="text-muted text-sm md:text-base max-w-md mb-8">
           Available for innovative web architectures, machine learning collaborations, and high-impact engineering roles.
         </p>
-        {/* Interactive Copy Email Button */}
-        <div className="flex flex-col items-center gap-3 w-full max-w-md px-2">
+        {/* Interactive Actions Strip */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-xl px-2 justify-center">
+          {/* Primary Action: Open Quick Contact Modal */}
+          <button
+            onClick={() => setIsContactModalOpen(true)}
+            className="group relative rounded-full inline-flex cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+            title="Open direct message modal"
+          >
+            <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative w-full bg-text-primary text-bg group-hover:bg-bg group-hover:text-text-primary text-xs xs:text-sm sm:text-base px-6 py-3.5 sm:px-7 sm:py-4 rounded-full transition-all flex items-center justify-center gap-2.5 shadow-md min-h-[44px]">
+              <MessageSquare className="w-4 h-4 text-[#89AACC]" />
+              <span className="font-medium">Send a Message</span>
+            </div>
+          </button>
+
+          {/* Secondary Action: Copy Email Pill */}
           <button 
             onClick={handleCopyEmail}
             className="group relative rounded-full inline-flex cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
             title="Click to copy email address"
           >
             <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative w-full bg-surface hover:bg-surface/80 text-text-primary text-xs xs:text-sm sm:text-base md:text-xl px-4 py-3.5 sm:px-8 sm:py-4 rounded-full border border-stroke transition-all flex items-center justify-center gap-2 sm:gap-3 shadow-sm min-h-[44px]">
+            <div className="relative w-full bg-surface hover:bg-surface/80 text-text-primary text-xs xs:text-sm sm:text-base px-5 py-3.5 sm:px-6 sm:py-4 rounded-full border border-stroke transition-all flex items-center justify-center gap-2 sm:gap-3 shadow-sm min-h-[44px]">
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
-                  <span className="text-emerald-500 font-medium">Copied to clipboard!</span>
+                  <Check className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="text-emerald-500 font-medium">Copied!</span>
                 </>
               ) : (
                 <>
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#89AACC] shrink-0" />
+                  <Mail className="w-4 h-4 text-[#89AACC] shrink-0" />
                   <span className="truncate">bouchamaabdeldjalil@gmail.com</span>
                   <span className="p-1 rounded-full bg-stroke/50 group-hover:bg-[#89AACC]/20 transition-colors ml-0.5 sm:ml-1 shrink-0">
                     <Copy className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-muted group-hover:text-text-primary" />
@@ -139,15 +161,15 @@ export const Footer: React.FC = () => {
               )}
             </div>
           </button>
-
-          {/* Secondary fallback link to mail client */}
-          <a
-            href="mailto:bouchamaabdeldjalil@gmail.com"
-            className="text-xs text-muted hover:text-text-primary inline-flex items-center gap-1 transition-colors mt-1 py-1"
-          >
-            Or open directly in mail app <ArrowUpRight className="w-3 h-3" />
-          </a>
         </div>
+
+        {/* Secondary fallback link to mail client */}
+        <a
+          href="mailto:bouchamaabdeldjalil@gmail.com"
+          className="text-xs text-muted hover:text-text-primary inline-flex items-center gap-1 transition-colors mt-4 py-1"
+        >
+          Or open directly in mail app <ArrowUpRight className="w-3 h-3" />
+        </a>
       </div>
 
       {/* Floating Toast Notification */}
@@ -206,6 +228,12 @@ export const Footer: React.FC = () => {
           © 2026 Abdeldjalil Bouchama. Built with passion & AI.
         </div>
       </div>
+
+      {/* Direct Contact Modal */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </footer>
   );
 };

@@ -149,19 +149,16 @@ export const Hero: React.FC = () => {
             </div>
           </a>
           
-          <a 
-            href="#contact" 
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("contact")?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="group relative rounded-full inline-flex w-full sm:w-auto"
+          <button 
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}
+            className="group relative rounded-full inline-flex w-full sm:w-auto cursor-pointer"
           >
             <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative w-full border-2 border-stroke bg-bg text-text-primary group-hover:border-transparent rounded-full text-sm px-7 py-3.5 transition-all group-hover:scale-105 flex items-center justify-center min-h-[44px]">
               Get in Touch
             </div>
-          </a>
+          </button>
         </div>
       </div>
 
