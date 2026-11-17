@@ -15,7 +15,7 @@ A high-performance, editorial portfolio website showcasing full-stack web applic
 - **🌓 Dynamic Dark & Light Modes**: Seamless theme switching with persistent local storage and calibrated high-contrast color tokens.
 - **🎥 Adaptive Ambient Video Streaming**: High-efficiency Mux HLS streaming integrated in Hero and Footer with responsive frosted overlay scrims.
 - **🍱 Modern Bento Grid Layout**: Highlights academic background (M2 in AI & Data Science), core focus areas, languages, and technical mastery.
-- **💼 Selected Works Showcase**: Cinematic showcases featuring multi-tenant SaaS inventory systems, dialectal NLP transformers (AraBERT), and AI visual automation prototypes.
+- **💼 Selected Works & Flagship Case Studies**: Showcases the **Atlas ERP Ecosystem** (3-portal B2B ERP, wholesale storefront & fleet delivery app with 1-click live demo sandbox), **ViteDrop** CPA SaaS, **HealthTrust** clinical microservices, **Apache Storm** stream analytics, and applied AI genomics/Darija NLP research.
 - **📄 One-Click Resume / CV Access**: Instant download access for recruiters and hiring managers.
 - **📋 Interactive Quick Copy Contact**: One-click email copying with animated toast feedback and direct fallback to native mail clients.
 - **📱 Fully Responsive**: Fluid scaling and typography across mobile, tablet, 14-inch laptops, and 4K displays.
