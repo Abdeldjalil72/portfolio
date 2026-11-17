@@ -12,84 +12,82 @@ interface Project extends CaseStudy {
 
 const projects: Project[] = [
   {
-    id: "multi-tenant-saas",
-    title: "Multi-Tenant Inventory & Stock SaaS Application",
-    subtitle: "Enterprise full-stack stock tracking and sales platform with tenant-isolated data layers",
-    type: "Full-Stack Web Architecture",
-    role: "Lead Full-Stack Web Architect",
-    context: "Commercial SaaS System",
+    id: "vitedrop-saas",
+    title: "ViteDrop: CPA & E-Commerce SaaS Architecture",
+    subtitle: "High-concurrency dropshipping & media buying platform with state machine order lifecycles and transactional ledgers",
+    type: "SaaS & Web Architecture",
+    role: "Full-Stack System Architect & Engineer",
+    context: "Production SaaS Venture",
     metrics: [
-      { label: "Tenant Isolation", value: "100%" },
-      { label: "Query P95", value: "<85ms" },
-      { label: "Architecture", value: "Multi-Tenant" }
+      { label: "Order Engine", value: "State Machine" },
+      { label: "Financial Ledger", value: "Double-Entry" },
+      { label: "Full-Stack", value: "Next.js + SQL" }
     ],
-    overview: "Architected and engineered a comprehensive multi-tenant inventory management system for commercial retailers and warehouse distribution centers.\n\nThe system solves the challenge of segregated customer billing, partitioned catalog storage, and concurrent point-of-sale checkout operations without data crossover.",
+    overview: "Architected and built ViteDrop from the ground up: an end-to-end CPA affiliate marketing, dropshipping, and media buying SaaS platform.\n\nThe system coordinates high-frequency order flows with a deterministic Cash-on-Delivery (COD) state machine, real-time logistics carrier webhooks, and an automated double-entry financial ledger guaranteeing exact commission distributions between suppliers and affiliates.",
     architecture: [
-      { title: "Tenant Data Isolation", description: "Row-level security and tenant-scoped query wrappers guaranteeing zero cross-tenant data leakage.", icon: "database" },
-      { title: "High-Concurrency Locks", description: "Atomic transactional stock reservations with optimistic concurrency controls preventing inventory overselling.", icon: "layers" },
-      { title: "Role-Based Access Control", description: "Granular permissions hierarchy covering SuperAdmins, Store Owners, Cashiers, and Inventory Auditors.", icon: "cpu" },
-      { title: "Automated Reporting", description: "High-throughput aggregation queries for stock turnover, daily profit margins, and automatic supplier reorder triggers.", icon: "sparkles" }
+      { title: "COD State Machine Engine", description: "Deterministic state engine governing Cash-on-Delivery orders from customer confirmation to carrier dispatch, transit, delivery, and automated return resolutions.", icon: "layers" },
+      { title: "Transactional Financial Ledger", description: "Double-entry accounting subsystem executing atomic balance updates, automated supplier billing, and affiliate commission payouts with strict audit trails.", icon: "database" },
+      { title: "Carrier Webhook Ingestion", description: "Resilient asynchronous webhook ingestion pipelines processing real-time parcel tracking and delivery status sync from third-party logistics APIs.", icon: "cpu" },
+      { title: "High-Throughput Full-Stack", description: "Server Actions and connection pooling over PostgreSQL delivering sub-100ms response latencies during viral ad campaign traffic spikes.", icon: "sparkles" }
     ],
-    techStack: ["Full-Stack", "PostgreSQL", "MySQL", "SaaS Architecture", "Node.js", "REST APIs", "JWT Auth"],
-    description: "Scalable stock management and sales tracking web platform featuring multi-tenant architecture, subscription billing logic, and inventory monitoring tools.",
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Node.js", "Tailwind CSS", "Prisma / Drizzle", "Webhooks", "State Machines", "REST APIs"],
+    description: "Production CPA and dropshipping SaaS platform featuring Cash-on-Delivery state machines, carrier logistics integration, and an automated financial ledger.",
     actionText: "Code Available on Request",
     actionType: "request",
     span: "md:col-span-7",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
   },
   {
-    id: "algerian-darija-nlp",
-    title: "Algerian Darija Sarcasm Detection (NLP Pipeline)",
-    subtitle: "Deep learning dialectal transformer pipeline fine-tuning AraBERT on code-switched Algerian Arabic",
-    type: "AI / NLP Research",
-    role: "Machine Learning & NLP Researcher",
-    context: "Univ. Constantine 2 — M2 Research",
+    id: "healthtrust-medical-ai",
+    title: "HealthTrust: Distributed Clinical Platform & Deep Learning Diagnostic",
+    subtitle: "Microservices medical platform pairing real-time consultation scheduling with asynchronous deep learning pulmonary radiology inference",
+    type: "Distributed Systems & Medical AI",
+    role: "Co-Creator & Lead Full-Stack / AI Engineer",
+    context: "Univ. Constantine 2 — Capstone (PFE L3)",
     metrics: [
-      { label: "Base Model", value: "AraBERT v02" },
-      { label: "Evaluation", value: "Macro F1" },
-      { label: "Target Dialect", value: "Algerian Darija" }
+      { label: "Inference Engine", value: "FastAPI / CNN" },
+      { label: "Real-Time Sync", value: "WebSockets" },
+      { label: "Queue Broker", value: "Celery + Redis" }
     ],
-    overview: "Researched and trained transformer-based classification models specifically tailored to Algerian Darija — a low-resource Arabic dialect characterized by heavy French borrowing, phonetic Romanization (Arabizi), and nuanced sarcastic syntax.\n\nDemonstrated significant performance improvements over standard Modern Standard Arabic (MSA) baselines when handling local conversational irony and sentiment polarity.",
+    overview: "Architected HealthTrust: a distributed healthcare platform uniting electronic medical records (EMR), real-time practitioner appointment scheduling, and automated deep learning diagnostic inference for chest radiographs.\n\nTo prevent resource starvation and maintain low UI latency, heavy neural network inference tasks were decoupled into a standalone FastAPI microservice orchestrated via Celery and Redis queues.",
     architecture: [
-      { title: "Dialect Preprocessing", description: "Custom tokenization and phonetic mapping resolving spelling variations, repeated letters, and Arabic/French code-switching.", icon: "cpu" },
-      { title: "AraBERT Fine-Tuning", description: "Trained 'bert-base-arabertv02' with tailored dropout rates, warm-up scheduling, and learning rate decay to prevent dialect overfitting.", icon: "layers" },
-      { title: "Loss Weighting", description: "Addressed severe class imbalance in social datasets with class-weighted cross-entropy and focal loss adjustments.", icon: "database" },
-      { title: "Hugging Face Inference", description: "Containerized PyTorch inference pipeline for real-time batch sentiment and sarcasm classification.", icon: "sparkles" }
+      { title: "Decoupled Inference Microservice", description: "Isolated CNN computer vision inference engine running on FastAPI, shielding the primary Django application from CPU/GPU latency spikes.", icon: "cpu" },
+      { title: "Asynchronous Task Queues", description: "Celery and Redis message brokers handling diagnostic pipeline dispatch, notification broadcasts, and asynchronous clinical report generation.", icon: "layers" },
+      { title: "Real-Time Consultation Dispatch", description: "Full-duplex WebSocket channels enabling instant appointment coordination and clinical state updates between physicians and patients.", icon: "sparkles" },
+      { title: "Atomic Medical Records", description: "Relational database schema with strict transactional guarantees and role-based access control protecting confidential patient health records.", icon: "database" }
     ],
-    techStack: ["Python", "AraBERT (bert-base-arabertv02)", "Hugging Face", "Transformers", "PyTorch", "Scikit-Learn"],
-    description: "Machine learning pipeline fine-tuning transformer models on Algerian Darija dialectal datasets for sarcasm detection and sentiment analysis.",
-    actionText: "Academic Project — Université Constantine 2",
+    techStack: ["React.js", "Django", "FastAPI", "Python", "Deep Learning / CNN", "Celery", "Redis", "WebSockets", "PostgreSQL"],
+    description: "Distributed healthcare and diagnostic platform pairing real-time clinical workflows with decoupled CNN deep learning radiology inference.",
+    actionText: "Capstone Project — Univ. Constantine 2",
     actionType: "academic",
     span: "md:col-span-5",
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200"
+    img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200"
   },
   {
-    id: "spatial-ui-flow",
-    title: "AI Video & Spatial UI Campaign System",
-    subtitle: "Visual automation pipeline and spatial user interface prototype powered by Google Flow",
-    type: "AI Workflow & Spatial UI Prototype",
-    role: "Spatial UI & Generative Workflow Designer",
-    context: "Experimental Prototype",
+    id: "applied-ai-biomedical-nlp",
+    title: "Applied AI Research: Biomedical Data Mining & Dialectal NLP",
+    subtitle: "Extreme dimensionality reduction (15,155 to 4 features) achieving 100% SVM accuracy alongside code-switched Algerian Darija sarcasm transformers",
+    type: "AI / ML & NLP Research",
+    role: "Applied AI & Machine Learning Researcher",
+    context: "Univ. Constantine 2 — Master Research",
     metrics: [
-      { label: "Engine", value: "Google Flow" },
-      { label: "Pipeline", value: "Multi-Turn" },
-      { label: "Resolution", value: "Spatial 4K" }
+      { label: "SVM Accuracy", value: "100%" },
+      { label: "Feature Space", value: "15,155 → 4" },
+      { label: "Darija NLP Model", value: "80% Acc." }
     ],
-    overview: "Engineered an automated visual storyboarding pipeline that translates campaign briefs into high-fidelity spatial video advertisements using generative video models.\n\nCombined fluid spatial interface principles with multi-turn prompt synthesis, allowing directors to manipulate camera sweeps, focal lighting, and spatial audio layers in real time.",
+    overview: "Spearheaded two cutting-edge applied AI research tracks at Université Constantine 2:\n\n1. Biomedical Data Mining: Developed a hybrid dimensionality reduction pipeline (feature selection + feature extraction) on an ovarian cancer gene expression dataset (253 samples × 15,155 variables). Successfully compressed the feature space down to 4 latent dimensions while achieving a flawless 100% classification accuracy using Support Vector Machines (SVM).\n\n2. Dialectal Arabic NLP: Engineered and fine-tuned transformer models (AraBERT) on code-switched Algerian Darija, capturing nuanced sarcasm, French loanwords, and Arabizi syntax to achieve 80% accuracy.",
     architecture: [
-      { title: "Prompt Decomposition", description: "Structured LLM chains that dissect natural language briefs into scene descriptions, camera paths, and lighting parameters.", icon: "sparkles" },
-      { title: "Google Flow Integration", description: "Direct API orchestration with Google Flow for video-referenced generation and smooth temporal scene transitions.", icon: "cpu" },
-      { title: "Spatial Glassmorphic UI", description: "Multi-depth canvas layout featuring floating contextual palettes and responsive touch feedback.", icon: "layers" },
-      { title: "Batch Synthesis Workflow", description: "Automated video asset assembly cutting production turnarounds from days to minutes.", icon: "database" }
+      { title: "Hybrid Dimensionality Reduction", description: "Coupled statistical feature selection with extraction techniques to compress 15,155 high-dimensional genomic variables into 4 informative components.", icon: "database" },
+      { title: "Support Vector Classification", description: "Trained and cross-validated RBF-kernel SVMs demonstrating total class separability on the reduced biomedical feature space.", icon: "sparkles" },
+      { title: "Low-Resource Dialect Transformers", description: "Custom tokenization and fine-tuning of AraBERT addressing phonetic Arabizi, spelling variations, and French-Arabic code-switching.", icon: "layers" },
+      { title: "IoT Embedded ML Classifier", description: "Embedded on-device classifier interpreting inertial sensor streams from a smart pen prototype for real-time geometric shape recognition.", icon: "cpu" }
     ],
-    techStack: ["Spatial UI", "Google Flow", "Prompt Engineering", "Visual Automation", "Figma", "TypeScript"],
-    description: "AI-driven video ad generator and spatial UI prototype system utilizing automated visual storyboarding and video synthesis pipelines.",
-    actionText: "View Prototype",
-    actionType: "prototype",
-    actionHref: "https://flow.google.com/shared/video/216dd3c7-538a-4f63-92b1-7600edd41baf",
+    techStack: ["Python", "Scikit-Learn", "AraBERT", "Transformers", "PyTorch", "SVM", "Pandas", "NumPy", "Data Mining", "IoT / Embedded ML"],
+    description: "Breakthrough applied AI research: 15,155-to-4 feature compression yielding 100% SVM accuracy on cancer genomics, plus Algerian Darija dialectal NLP.",
+    actionText: "Academic Research — Univ. Constantine 2",
+    actionType: "academic",
     span: "md:col-span-12",
-    img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1400",
-    videoSrc: "/flow-video.mp4"
+    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1400"
   }
 ];
 
@@ -119,7 +117,7 @@ export const SelectedWorks: React.FC = () => {
               className="text-4xl md:text-5xl lg:text-6xl text-text-primary"
             />
             <p className="text-muted mt-4 max-w-lg text-sm md:text-base">
-              A curated selection of production web platforms, dialectal NLP models, and spatial AI workflows. Click any project for architecture details.
+              A curated selection of production SaaS platforms, distributed healthcare architectures, and applied AI & data mining research. Click any project for architecture details.
             </p>
           </div>
         </motion.div>
@@ -175,7 +173,7 @@ export const SelectedWorks: React.FC = () => {
                   {/* Action Link / Badge */}
                   {project.actionType === 'request' && (
                     <a
-                      href="mailto:bouchamaabdeldjalil@gmail.com?subject=Code%20Request%3A%20Multi-Tenant%20Inventory%20SaaS"
+                      href={`mailto:bouchamaabdeldjalil@gmail.com?subject=${encodeURIComponent(`Code Request: ${project.title}`)}`}
                       onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur-md border border-white/15 text-white hover:border-[#89AACC] transition-colors shadow-sm min-h-[32px]"
                       title="Contact to request code repository access"

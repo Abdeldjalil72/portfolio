@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { value: "Full-Stack", label: "Core Engineering Mastery" },
+  { value: "100%", label: "Biomedical SVM Accuracy (15,155 → 4 features)" },
   { value: "M2", label: "AI & Data Science (Univ. Constantine 2)" },
-  { value: "7.5", label: "IELTS English Proficiency (C1)" }
+  { value: "7.5", label: "IELTS Academic English (C1 Certified)" }
 ];
 
 export const Stats: React.FC = () => {

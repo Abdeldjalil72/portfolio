@@ -176,7 +176,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
                 {project.actionType === 'request' && (
                   <a
-                    href="mailto:bouchamaabdeldjalil@gmail.com?subject=Code%20Request%3A%20Multi-Tenant%20Inventory%20SaaS"
+                    href={`mailto:bouchamaabdeldjalil@gmail.com?subject=${encodeURIComponent(`Code Request: ${project.title}`)}`}
                     className="group/btn relative rounded-full inline-flex w-full sm:w-auto"
                   >
                     <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
@@ -189,12 +189,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
                 {project.actionType === 'academic' && (
                   <a
-                    href="mailto:bouchamaabdeldjalil@gmail.com?subject=Inquiry%3A%20Darija%20Sarcasm%20Detection%20Research"
+                    href={`mailto:bouchamaabdeldjalil@gmail.com?subject=${encodeURIComponent(`Inquiry: ${project.title}`)}`}
                     className="group/btn relative rounded-full inline-flex w-full sm:w-auto"
                   >
                     <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     <div className="relative w-full bg-surface hover:bg-stroke/40 border border-stroke text-text-primary rounded-full text-xs sm:text-sm px-6 py-3 transition-all flex items-center justify-center gap-2 min-h-[44px]">
-                      <span>Contact for Thesis & Datasets</span>
+                      <span>Contact for Research & Code</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </a>

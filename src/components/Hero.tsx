@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 import gsap from 'gsap';
 import { FileDown } from 'lucide-react';
 
-const roles = ["Full-Stack Web Developer", "SaaS Systems Architect", "AI & Data Science Student", "Full-Stack Engineer"];
+const roles = ["Full-Stack Systems Architect", "AI & Data Science Researcher", "SaaS & Web Engineer", "Distributed Systems Builder"];
 
 export const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -91,7 +91,7 @@ export const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto my-auto">
         <div className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-6 md:mb-8">
-          FULL-STACK WEB DEVELOPER • AI & SOFTWARE ENGINEER
+          FULL-STACK ARCHITECT • AI & DATA SCIENCE RESEARCHER
         </div>
         
         <h1 className="flex flex-col items-center font-display italic leading-[0.88] tracking-tight text-text-primary mb-6 py-2 max-w-full">
@@ -116,7 +116,7 @@ export const Hero: React.FC = () => {
         </p>
         
         <p className="blur-in text-sm sm:text-base md:text-lg text-muted max-w-xl mb-8 md:mb-10 px-2 sm:px-0">
-          Specializing in robust full-stack web architectures, scalable multi-tenant SaaS systems, and intelligent data-driven applications.
+          Specializing in high-concurrency SaaS platforms, distributed healthcare architectures, and applied machine learning research.
         </p>
 
         <div className="blur-in flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center w-full max-w-xs sm:max-w-none">

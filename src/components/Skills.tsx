@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Layout, Database, BrainCircuit, Wrench } from 'lucide-react';
+import { Code2, Layout, Database, BrainCircuit } from 'lucide-react';
 import { AnimatedTitle } from './AnimatedTitle';
 
 interface SkillCategory {
@@ -13,49 +13,67 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Languages & Core",
-    icon: Code2,
-    span: "md:col-span-6",
-    skills: ["Python", "JavaScript", "TypeScript", "SQL", "HTML5", "CSS3"]
-  },
-  {
-    title: "Frontend & UI",
-    icon: Layout,
-    span: "md:col-span-6",
-    skills: ["Tailwind CSS", "React / Next.js", "Responsive UI Systems", "Spatial UI Prototyping"]
-  },
-  {
-    title: "Backend & Databases",
-    icon: Database,
-    span: "md:col-span-6",
-    skills: ["Node.js", "PostgreSQL", "MySQL", "MongoDB Atlas", "Vercel", "Render"]
-  },
-  {
-    title: "AI, ML & NLP",
+    title: "AI, Machine Learning & Data",
     icon: BrainCircuit,
     span: "md:col-span-6",
     skills: [
-      "Fine-Tuning Transformers",
+      "Machine Learning (SVM, Classification)",
+      "Deep Learning (CNN / Computer Vision)",
+      "NLP (Arabic & Algerian Darija Sarcasm)",
+      "High-Dimensional Data Mining",
+      "Dimensionality Reduction (15,155 → 4)",
+      "Scikit-Learn",
+      "PyTorch",
       "AraBERT (bert-base-arabertv02)",
-      "Hugging Face",
-      "Gemini API",
-      "ComfyUI",
-      "Natural Language Processing (Algerian Darija)"
+      "Pandas & NumPy"
     ],
-    featured: "Specialized in Dialectal Arabic NLP & LLM Orchestration"
+    featured: "100% SVM Accuracy on High-Dimensional Biomedical Genomics"
   },
   {
-    title: "Tools & Dev Workflow",
-    icon: Wrench,
-    span: "md:col-span-12",
+    title: "Web Architecture & Distributed Backend",
+    icon: Layout,
+    span: "md:col-span-6",
     skills: [
-      "Cursor",
-      "Google Antigravity",
+      "Next.js (Full-Stack)",
+      "React.js",
+      "Django",
+      "FastAPI",
+      "Node.js",
+      "Celery & Redis (Task Queues)",
+      "WebSockets (Real-Time)",
+      "Carrier Logistics Webhooks",
+      "State Machines & Ledgers"
+    ],
+    featured: "Decoupled Microservice Architectures & Real-Time Sync"
+  },
+  {
+    title: "Languages & Core Fundamentals",
+    icon: Code2,
+    span: "md:col-span-6",
+    skills: [
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Python",
+      "Java",
+      "C / C++",
+      "SQL",
+      "Tailwind CSS",
+      "HTML5 / CSS3"
+    ]
+  },
+  {
+    title: "Databases, Systems & Engineering Tools",
+    icon: Database,
+    span: "md:col-span-6",
+    skills: [
+      "PostgreSQL",
+      "MongoDB Atlas",
+      "MySQL",
+      "Linux / Bash",
       "Git / GitHub",
-      "System Architecture",
-      "Database Schema Design",
-      "RESTful API Design",
-      "Performance Optimization"
+      "Vercel",
+      "IoT & Embedded Sensors",
+      "AI Agent-Assisted Development"
     ]
   }
 ];
@@ -84,7 +102,7 @@ export const Skills: React.FC = () => {
               className="text-4xl md:text-5xl lg:text-6xl text-text-primary"
             />
             <p className="text-muted mt-4 max-w-lg text-sm md:text-base">
-              A comprehensive toolkit spanning full-stack development, modern AI workflows, and software design.
+              A comprehensive technical toolkit spanning applied AI research, distributed backend architecture, full-stack web platforms, and data engineering.
             </p>
           </div>
         </motion.div>

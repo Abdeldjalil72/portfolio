@@ -1,34 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Languages, Cpu, Layers, Sparkles, MapPin, FileDown } from 'lucide-react';
+import { GraduationCap, Languages, Cpu, Layers, Sparkles, MapPin, FileDown, BrainCircuit } from 'lucide-react';
 import { AnimatedTitle } from './AnimatedTitle';
 
 const focusAreas = [
   {
-    title: "Full-Stack Web Architecture",
-    description: "Designing end-to-end scalable web applications, responsive user interfaces, and robust RESTful API services.",
+    title: "SaaS & Web Architecture",
+    description: "Architecting high-concurrency web platforms, deterministic state machines, automated ledgers, and responsive UIs with Next.js & PostgreSQL.",
     icon: Layers
   },
   {
-    title: "Multi-Tenant SaaS Systems",
-    description: "Architecting isolated data layers, tenant subscription billing systems, and high-concurrency inventory backends.",
+    title: "Distributed Microservices & Queues",
+    description: "Designing decoupled service backends with Django, FastAPI, Celery, and Redis for asynchronous background workflows and real-time WebSockets.",
     icon: Sparkles
   },
   {
-    title: "NLP & Fine-Tuning Transformers",
-    description: "Specialized in fine-tuning state-of-the-art transformer models (such as AraBERT) for dialectal Arabic & Algerian Darija.",
+    title: "Biomedical Data Mining & ML",
+    description: "Advanced feature engineering and extreme dimensionality reduction (15,155 to 4 dimensions) achieving 100% classification accuracy with SVM.",
     icon: Cpu
   },
   {
-    title: "Spatial UI Prototyping",
-    description: "Crafting fluid, high-fidelity spatial user interfaces and AI-assisted visual automation pipelines.",
-    icon: Sparkles
+    title: "Dialectal Arabic NLP (Darija)",
+    description: "Fine-tuning transformer models (AraBERT) on low-resource code-switched Algerian Arabic for sarcasm detection and sentiment classification.",
+    icon: BrainCircuit
   }
 ];
 
 const languages = [
   { name: "English", level: "IELTS 7.5 (C1)" },
-  { name: "French", level: "TCF TP (B2)" },
+  { name: "French", level: "TCF TP 456 (B2)" },
   { name: "Arabic", level: "Native" }
 ];
 
@@ -56,7 +56,7 @@ export const About: React.FC = () => {
               className="text-4xl md:text-5xl lg:text-6xl text-text-primary"
             />
             <p className="text-muted mt-4 max-w-xl text-sm md:text-base leading-relaxed">
-              My primary expertise and passion is full-stack web development — building robust, scalable web platforms, supplemented by advanced graduate studies in AI & Data Science.
+              Full-stack software architect and graduate researcher in AI & Data Science — merging deep algorithmic rigor with production systems engineering.
             </p>
           </div>
         </motion.div>
@@ -85,7 +85,7 @@ export const About: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 Abdeldjalil Bouchama
               </span>
-              <p className="text-xs text-white/90 font-medium drop-shadow-sm">Full-Stack Web Developer & AI Engineer</p>
+              <p className="text-xs text-white/90 font-medium drop-shadow-sm">Full-Stack Architect & AI Engineer</p>
             </div>
           </motion.div>
 
@@ -104,23 +104,36 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-xs text-muted uppercase tracking-[0.2em]">Academic Background</span>
-                  <h3 className="text-lg font-medium text-text-primary">Université Constantine 2</h3>
+                  <h3 className="text-lg font-medium text-text-primary">Université Abdelhamid Mehri – Constantine 2</h3>
                 </div>
               </div>
 
               <div className="space-y-4 mb-6">
-                <div className="border-l-2 border-[#89AACC]/40 pl-4 py-1">
-                  <h4 className="text-base font-semibold text-text-primary">Master 2 in Artificial Intelligence and Data Science</h4>
-                  <p className="text-sm text-muted">Université Abdelhamid Mehri - Constantine 2</p>
+                <div className="border-l-2 border-[#89AACC] pl-4 py-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h4 className="text-base font-semibold text-text-primary">Master 2 in Artificial Intelligence and Data Science</h4>
+                    <span className="text-xs text-[#3B72AC] dark:text-[#89AACC] font-medium">2025 – 2027</span>
+                  </div>
+                  <p className="text-sm text-muted">Univ. Abdelhamid Mehri – Constantine 2 (Systèmes Intelligents, Data & Logiciel)</p>
+                </div>
+                <div className="border-l-2 border-[#89AACC]/50 pl-4 py-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h4 className="text-base font-semibold text-text-primary">Licence in Information Technology</h4>
+                    <span className="text-xs text-muted font-medium">2022 – 2025</span>
+                  </div>
+                  <p className="text-sm text-muted">Univ. Constantine 2 (Core Foundations in Software Engineering, Algorithms & Distributed Systems)</p>
                 </div>
                 <div className="border-l-2 border-stroke pl-4 py-1">
-                  <h4 className="text-base font-semibold text-text-primary">Bachelor's Degree in Information Technology</h4>
-                  <p className="text-sm text-muted">Core foundations in Software Engineering, Algorithms & Databases</p>
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h4 className="text-base font-semibold text-text-primary">Baccalauréat — Série Mathématiques</h4>
+                    <span className="text-xs text-muted font-medium">2021 – 2022</span>
+                  </div>
+                  <p className="text-sm text-muted">Lycée Touati El Mekki (Mention Assez Bien — 13.84/20)</p>
                 </div>
               </div>
 
               <p className="text-sm md:text-base text-muted leading-relaxed">
-                Full-stack web developer at heart and by trade. While I am actively studying AI and Data Science at the Master's level, what I do best is engineering production-grade full-stack web applications, scalable multi-tenant SaaS architectures, and seamless user experiences.
+                Full-stack software architect and graduate researcher in AI & Data Science at Université Constantine 2. I combine solid mathematical foundations with production-grade engineering — from architecting SaaS platforms with transactional financial ledgers and deterministic state machines to training high-precision machine learning models and distributed microservices.
               </p>
             </div>
 
