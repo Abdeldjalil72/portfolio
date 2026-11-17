@@ -88,6 +88,34 @@ const projects: Project[] = [
     actionType: "academic",
     span: "md:col-span-12",
     img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1400"
+  },
+  {
+    id: "spatial-ui-flow",
+    title: "AI Video & Spatial UI Campaign System",
+    subtitle: "Visual automation pipeline and spatial user interface prototype powered by Google Flow",
+    type: "AI Workflow & Spatial UI Prototype",
+    role: "Spatial UI & Generative Workflow Designer",
+    context: "Experimental Prototype",
+    metrics: [
+      { label: "Engine", value: "Google Flow" },
+      { label: "Pipeline", value: "Multi-Turn" },
+      { label: "Resolution", value: "Spatial 4K" }
+    ],
+    overview: "Engineered an automated visual storyboarding pipeline that translates campaign briefs into high-fidelity spatial video advertisements using generative video models.\n\nCombined fluid spatial interface principles with multi-turn prompt synthesis, allowing directors to manipulate camera sweeps, focal lighting, and spatial audio layers in real time.",
+    architecture: [
+      { title: "Prompt Decomposition", description: "Structured LLM chains that dissect natural language briefs into scene descriptions, camera paths, and lighting parameters.", icon: "sparkles" },
+      { title: "Google Flow Integration", description: "Direct API orchestration with Google Flow for video-referenced generation and smooth temporal scene transitions.", icon: "cpu" },
+      { title: "Spatial Glassmorphic UI", description: "Multi-depth canvas layout featuring floating contextual palettes and responsive touch feedback.", icon: "layers" },
+      { title: "Batch Synthesis Workflow", description: "Automated video asset assembly cutting production turnarounds from days to minutes.", icon: "database" }
+    ],
+    techStack: ["Spatial UI", "Google Flow", "Prompt Engineering", "Visual Automation", "Figma", "TypeScript"],
+    description: "AI-driven video ad generator and spatial UI prototype system utilizing automated visual storyboarding and video synthesis pipelines.",
+    actionText: "View Prototype",
+    actionType: "prototype",
+    actionHref: "https://flow.google.com/shared/video/216dd3c7-538a-4f63-92b1-7600edd41baf",
+    span: "md:col-span-12",
+    img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1400",
+    videoSrc: "/flow-video.mp4"
   }
 ];
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Hls from 'hls.js';
 import gsap from 'gsap';
 import { FileDown } from 'lucide-react';
 
@@ -11,18 +10,10 @@ export const Hero: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
-    // HLS Setup
-    let hls: Hls | null = null;
-    const src = "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
-    
+    // Setup animated background video
     if (videoRef.current) {
-      if (Hls.isSupported()) {
-        hls = new Hls();
-        hls.loadSource(src);
-        hls.attachMedia(videoRef.current);
-      } else if (videoRef.current.canPlayType('application/vnd.apple.mpegurl')) {
-        videoRef.current.src = src;
-      }
+      videoRef.current.src = "/flow-video.mp4";
+      videoRef.current.play().catch(() => {});
     }
 
     const observer = new IntersectionObserver(
@@ -48,7 +39,6 @@ export const Hero: React.FC = () => {
     return () => {
       clearInterval(interval);
       observer.disconnect();
-      hls?.destroy();
     };
   }, []);
 
@@ -78,6 +68,7 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
+          src="/flow-video.mp4"
           autoPlay
           muted
           loop
