@@ -13,7 +13,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
   useEffect(() => {
     let startTimestamp: number;
-    const duration = 2700;
+    const duration = 1650;
     let animationFrameId: number;
 
     const step = (timestamp: number) => {
@@ -25,7 +25,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       if (progress < 1) {
         animationFrameId = requestAnimationFrame(step);
       } else {
-        setTimeout(onComplete, 400);
+        setTimeout(onComplete, 250);
       }
     };
 
@@ -37,13 +37,18 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % words.length);
-    }, 900);
+    }, 550);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between p-6 md:p-10">
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: "easeInOut" }}
+      className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between p-6 md:p-10"
+    >
       {/* Top Bar with Brand & Skip */}
       <div className="flex items-center justify-between w-full">
         <motion.div
@@ -97,6 +102,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };

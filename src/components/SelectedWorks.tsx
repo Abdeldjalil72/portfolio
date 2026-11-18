@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, Eye, ExternalLink, BookOpen, ArrowUpRight, FileDown, Zap } from 'lucide-react';
 import { AnimatedTitle } from './AnimatedTitle';
-import { ProjectModal, type CaseStudy } from './ProjectModal';
+import type { CaseStudy } from './ProjectModal';
+
+const ProjectModal = lazy(() =>
+  import('./ProjectModal').then((m) => ({ default: m.ProjectModal }))
+);
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -129,8 +133,22 @@ const projects: Project[] = [
     actionType: "external",
     liveHref: "https://vitedrop-frontend.vercel.app/",
     githubHref: "https://github.com/Abdeldjalil72/vitedrop-frontend",
+    screenshots: [
+      {
+        id: "vitedrop-hero",
+        label: "1. Live Platform Hero",
+        src: "/projects/vitedrop/vitedrop-hero.png",
+        caption: "Production CPA Cash-on-Delivery network with real-time Yalidine & ZR Express sync and automated 24h payouts."
+      },
+      {
+        id: "vitedrop-states",
+        label: "2. 8-State COD Engine",
+        src: "/projects/vitedrop/vitedrop-states.png",
+        caption: "Deterministic 8-state anti-shaving order lifecycle unlocking commissions strictly via verified carrier webhooks."
+      }
+    ],
     span: "md:col-span-7",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+    img: "/projects/vitedrop-cover.jpg"
   },
   {
     id: "healthtrust-medical-ai",
@@ -157,7 +175,7 @@ const projects: Project[] = [
     actionType: "external",
     actionHref: "https://lnkd.in/p/ewk-5HQu",
     span: "md:col-span-5",
-    img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200"
+    img: "/projects/healthtrust-cover.jpg"
   },
   {
     id: "storm-tweet-stream",
@@ -184,7 +202,7 @@ const projects: Project[] = [
     actionType: "external",
     githubHref: "https://github.com/Abdeldjalil72/real-time-tweet-analysis-using-apache-storm",
     span: "md:col-span-6",
-    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
+    img: "/projects/storm-cover.jpg"
   },
   {
     id: "applied-ai-biomedical-nlp",
@@ -212,7 +230,7 @@ const projects: Project[] = [
     downloadHref: "/research/ovarian-cancer-data-mining.ipynb",
     downloadFilename: "Abdeldjalil_Bouchama_Ovarian_Cancer_Data_Mining.ipynb",
     span: "md:col-span-6",
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1400"
+    img: "/projects/applied-ai-cover.jpg"
   },
   {
     id: "spatial-ui-flow",
@@ -239,7 +257,7 @@ const projects: Project[] = [
     actionType: "prototype",
     actionHref: "https://flow.google.com/shared/video/216dd3c7-538a-4f63-92b1-7600edd41baf",
     span: "md:col-span-12",
-    img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1400",
+    img: "/blackhole-poster.jpg",
     videoSrc: "/flow-video.mp4"
   }
 ];
@@ -247,6 +265,17 @@ const projects: Project[] = [
 export const SelectedWorks: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<CaseStudy | null>(null);
   const [activeCardPortalIdx, setActiveCardPortalIdx] = useState(0);
+
+  useEffect(() => {
+    const handleOpenProject = (e: Event) => {
+      const detail = (e as CustomEvent<{ id?: string }>).detail;
+      if (!detail?.id) return;
+      const found = projects.find((p) => p.id === detail.id);
+      if (found) setSelectedProject(found);
+    };
+    window.addEventListener('open-project-modal', handleOpenProject);
+    return () => window.removeEventListener('open-project-modal', handleOpenProject);
+  }, []);
 
   return (
     <section id="projects" className="bg-bg py-16 md:py-24 border-t border-stroke/50">
@@ -502,6 +531,8 @@ export const SelectedWorks: React.FC = () => {
                 <img 
                   src={project.img} 
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               )}
@@ -658,10 +689,14 @@ export const SelectedWorks: React.FC = () => {
         </div>
 
         {/* Case Study Deep-Dive Modal */}
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        {selectedProject && (
+          <Suspense fallback={null}>
+            <ProjectModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+          </Suspense>
+        )}
 
       </div>
     </section>

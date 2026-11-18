@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,12 +14,12 @@
   }
 
   .light {
-    --bg: 220 16% 96%;
-    --surface: 0 0% 100%;
-    --text: 222 47% 11%;
-    --muted: 215 16% 45%;
-    --stroke: 220 13% 88%;
-    --accent: 217 91% 60%;
+    --bg: 216 17% 87%;
+    --surface: 216 18% 92%;
+    --text: 222 40% 13%;
+    --muted: 216 18% 35%;
+    --stroke: 216 16% 78%;
+    --accent: 213 50% 44%;
     color-scheme: light;
   }
 
@@ -46,5 +44,30 @@
 
   .dark .accent-gradient {
     background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  }
+
+  .cosmic-video-theme {
+    filter: none;
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+
+  .light .cosmic-video-theme {
+    filter: invert(1) hue-rotate(180deg) saturate(1.4) brightness(1.09);
+    mix-blend-mode: multiply;
+    opacity: 0.65;
+  }
+
+  .light .cosmic-video-footer {
+    opacity: 0.48;
+  }
+
+  .light .hero-light-vignette {
+    background: radial-gradient(
+      ellipse 46% 34% at 50% 47%,
+      hsl(var(--bg) / 0.65) 0%,
+      hsl(var(--bg) / 0.22) 58%,
+      transparent 82%
+    );
   }
 }

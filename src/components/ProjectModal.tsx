@@ -43,6 +43,7 @@ export interface CaseStudy {
   isPrivateRepo?: boolean;
   sandboxBadge?: string;
   portals?: PortalDemo[];
+  screenshots?: { id: string; label: string; src: string; caption?: string }[];
 }
 
 interface ProjectModalProps {
@@ -52,10 +53,12 @@ interface ProjectModalProps {
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const [activePortalIndex, setActivePortalIndex] = useState(0);
+  const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
 
-  // Reset portal tab when opening a different project
+  // Reset portal & screenshot tabs when opening a different project
   useEffect(() => {
     setActivePortalIndex(0);
+    setActiveScreenshotIndex(0);
   }, [project?.id]);
 
   // Lock body scroll and handle Escape key
@@ -289,6 +292,51 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                     <p className="text-xs text-muted leading-relaxed mt-3">
                       <strong className="text-text-primary">{activePortal.name}:</strong> {activePortal.caption}
                     </p>
+                  </div>
+                );
+              })()}
+
+              {/* Single-Platform Live UI Screenshots (e.g. ViteDrop) */}
+              {!project.portals && project.screenshots && project.screenshots.length > 0 && (() => {
+                const activeShot = project.screenshots[activeScreenshotIndex] || project.screenshots[0];
+                return (
+                  <div className="mb-8 rounded-2xl bg-bg/70 border border-stroke p-4 sm:p-5">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                      <h3 className="text-xs text-muted uppercase tracking-[0.2em]">
+                        Live Platform Preview
+                      </h3>
+                      {project.screenshots.length > 1 && (
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {project.screenshots.map((shot, sIdx) => (
+                            <button
+                              key={shot.id}
+                              type="button"
+                              onClick={() => setActiveScreenshotIndex(sIdx)}
+                              className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                                sIdx === activeScreenshotIndex
+                                  ? 'bg-text-primary text-bg'
+                                  : 'bg-surface border border-stroke text-muted hover:text-text-primary'
+                              }`}
+                            >
+                              {shot.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="rounded-xl overflow-hidden border border-stroke shadow-md bg-[#0A0E15]">
+                      <img
+                        src={activeShot.src}
+                        alt={activeShot.label}
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                    {activeShot.caption && (
+                      <p className="text-xs text-muted leading-relaxed mt-2.5">
+                        {activeShot.caption}
+                      </p>
+                    )}
                   </div>
                 );
               })()}

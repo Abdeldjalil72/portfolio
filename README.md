@@ -13,7 +13,7 @@ A high-performance, editorial portfolio website showcasing full-stack web applic
 ## 🌟 Key Features
 
 - **🌓 Dynamic Dark & Light Modes**: Seamless theme switching with persistent local storage and calibrated high-contrast color tokens.
-- **🎥 Adaptive Ambient Video Streaming**: High-efficiency Mux HLS streaming integrated in Hero and Footer with responsive frosted overlay scrims.
+- **🎥 Viewport-Aware Ambient Video**: Optimized WebM/MP4 cosmic backgrounds in Hero and Footer with `IntersectionObserver` auto-pause and frosted overlay scrims.
 - **🍱 Modern Bento Grid Layout**: Highlights academic background (M2 in AI & Data Science), core focus areas, languages, and technical mastery.
 - **💼 Selected Works & Flagship Case Studies**: Showcases the **Atlas ERP Ecosystem** (3-portal B2B ERP, wholesale storefront & fleet delivery app with 1-click live demo sandbox), **ViteDrop** CPA SaaS, **HealthTrust** clinical microservices, **Apache Storm** stream analytics, and applied AI genomics/Darija NLP research.
 - **📄 One-Click Resume / CV Access**: Instant download access for recruiters and hiring managers.
@@ -27,7 +27,7 @@ A high-performance, editorial portfolio website showcasing full-stack web applic
 - **Frontend Core**: React 19, TypeScript, Vite
 - **Styling**: Tailwind CSS, CSS Custom Properties (HSL Design Tokens), `tailwindcss-animate`
 - **Animations**: Framer Motion, GSAP (GreenSock)
-- **Streaming & Media**: HLS.js (HTTP Live Streaming), Mux
+- **Media & Assets**: WebM/MP4 Viewport-Gated Video, Custom Open Graph Social Cards & JSON-LD SEO
 - **Icons**: Lucide React
 - **Typography**: Instrument Serif & Inter
 

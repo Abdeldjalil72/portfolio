@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, CheckCircle2, Building2 } from 'lucide-react';
+import { Briefcase, CheckCircle2, Building2, BookOpen, ArrowUpRight } from 'lucide-react';
 import { AnimatedTitle } from './AnimatedTitle';
 
 interface ExperienceItem {
@@ -10,6 +10,10 @@ interface ExperienceItem {
   period: string;
   type: string;
   details: string[];
+  caseStudyId?: string;
+  caseStudyLabel?: string;
+  liveHref?: string;
+  liveLabel?: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -19,9 +23,13 @@ const experiences: ExperienceItem[] = [
     location: "Constantine, Algeria",
     period: "Oct. 2026 – Present",
     type: "SaaS Architecture & Next.js",
+    caseStudyId: "vitedrop-saas",
+    caseStudyLabel: "ViteDrop Case Study",
+    liveHref: "https://vitedrop-frontend.vercel.app/",
+    liveLabel: "Live Platform",
     details: [
       "Engineered an end-to-end CPA affiliate, dropshipping, and media buying platform built with Next.js Full-Stack and PostgreSQL.",
-      "Implemented a robust deterministic state machine for Cash-on-Delivery (COD) order lifecycles and integrated real-time logistics carrier webhooks.",
+      "Implemented a robust deterministic 8-state machine for Cash-on-Delivery (COD) order lifecycles and integrated real-time logistics carrier webhooks.",
       "Designed an automated double-entry transactional ledger and billing engine for vendor payouts and affiliate commissions."
     ]
   },
@@ -31,6 +39,10 @@ const experiences: ExperienceItem[] = [
     location: "Constantine, Algeria",
     period: "Sept. 2025 – June 2026",
     type: "Academic & Applied Research",
+    caseStudyId: "applied-ai-biomedical-nlp",
+    caseStudyLabel: "Research Case Study",
+    liveHref: "/research/ovarian-cancer-data-mining.ipynb",
+    liveLabel: "Notebook (.ipynb)",
     details: [
       "Biomedical Data Mining: Engineered hybrid dimensionality reduction (feature selection + extraction) on an ovarian cancer dataset (253×15,155 variables reduced to 4), achieving 100% classification accuracy with SVM.",
       "NLP & Sarcasm Detection: Trained and fine-tuned natural language processing models on Arabic and Algerian Darija, achieving 80% accuracy.",
@@ -42,11 +54,15 @@ const experiences: ExperienceItem[] = [
     company: "Agri-Food Enterprise (Avian Distribution)",
     location: "Constantine, Algeria",
     period: "March 2025 – Nov. 2025",
-    type: "Freelance Enterprise Systems",
+    type: "3-Portal B2B ERP Ecosystem",
+    caseStudyId: "atlas-erp-ecosystem",
+    caseStudyLabel: "Explore 3-Portal Flagship Case Study",
+    liveHref: "https://erp-showcase.vercel.app",
+    liveLabel: "1-Click Live ERP Sandbox",
     details: [
-      "Architected and delivered an enterprise software ecosystem with 3 interconnected portals (Next.js, Node.js, MongoDB), integrating AI agent-assisted development workflows.",
-      "Built real-time inventory management and a direct B2B/B2C e-commerce portal handling dynamic order processing.",
-      "Engineered a dedicated dispatch and driver mobile application for route tracking, order acceptance, and live delivery status updates."
+      "Architected and delivered a production 3-portal B2B distribution ecosystem (Next.js App Router, MongoDB Atlas & Mongoose) sharing a unified real-time database across ERP Back-Office, Wholesale Storefront, and Driver Mobile App.",
+      "Engineered multi-company RBAC, multi-warehouse batch/lot & expiry inventory, supplier procurement, and the complete commercial pipeline (Devis → Bon de Commande → Bon de Livraison → Facture) with PDF generation.",
+      "Built the wholesale B2B customer storefront (draft carts, live order tracking) and mobile-first fleet delivery app with live dispatches and digital signature/photo proof-of-delivery."
     ]
   },
   {
@@ -55,6 +71,10 @@ const experiences: ExperienceItem[] = [
     location: "Constantine, Algeria",
     period: "Jan. 2025 – May 2025",
     type: "Capstone Project (PFE L3)",
+    caseStudyId: "healthtrust-medical-ai",
+    caseStudyLabel: "HealthTrust Case Study",
+    liveHref: "https://lnkd.in/p/ewk-5HQu",
+    liveLabel: "Project Showcase",
     details: [
       "Architected HealthTrust: a distributed healthcare platform for patient medical records, real-time consultation scheduling (WebSockets), and automated clinical diagnostics (React, Django, FastAPI).",
       "Isolated the Deep Learning inference microservice (pulmonary cancer detection on chest X-rays) using FastAPI to prevent main backend bottlenecks.",
@@ -140,6 +160,40 @@ export const Experience: React.FC = () => {
                     </p>
                   </div>
                 ))}
+
+                {/* Cross-Links to Case Studies & Live Deployments */}
+                {(exp.caseStudyId || exp.liveHref) && (
+                  <div className="flex flex-wrap items-center gap-2.5 pt-3 mt-1">
+                    {exp.caseStudyId && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                          window.dispatchEvent(
+                            new CustomEvent('open-project-modal', { detail: { id: exp.caseStudyId } })
+                          );
+                        }}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-bg border border-stroke text-text-primary hover:border-[#89AACC] transition-colors cursor-pointer min-h-[32px]"
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-[#89AACC]" />
+                        <span>{exp.caseStudyLabel || 'View Case Study'}</span>
+                      </button>
+                    )}
+
+                    {exp.liveHref && (
+                      <a
+                        href={exp.liveHref}
+                        download={exp.liveHref.endsWith('.ipynb') ? 'Abdeldjalil_Bouchama_Ovarian_Cancer_Data_Mining.ipynb' : undefined}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#89AACC]/10 border border-[#89AACC]/25 text-[#3B72AC] dark:text-[#89AACC] hover:bg-[#89AACC]/20 transition-colors min-h-[32px]"
+                      >
+                        <span>{exp.liveLabel || 'Live Link'}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

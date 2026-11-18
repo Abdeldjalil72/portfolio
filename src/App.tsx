@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
@@ -11,8 +11,29 @@ import { SelectedWorks } from './components/SelectedWorks';
 import { Stats } from './components/Stats';
 import { Footer } from './components/Footer';
 
+const INTRO_SESSION_KEY = 'portfolio_intro_seen';
+
+function shouldShowInitialIntro(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    return sessionStorage.getItem(INTRO_SESSION_KEY) !== '1';
+  } catch {
+    return false;
+  }
+}
+
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(shouldShowInitialIntro);
+
+  const handleIntroComplete = useCallback(() => {
+    try {
+      sessionStorage.setItem(INTRO_SESSION_KEY, '1');
+    } catch {
+      // ignore storage restrictions
+    }
+    setIsLoading(false);
+  }, []);
 
   // Smooth scroll logic for anchor links
   useEffect(() => {
@@ -24,22 +45,20 @@ function App() {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-        
-        {!isLoading && (
-          <main className="min-h-screen bg-bg text-text-primary overflow-x-hidden transition-colors duration-300">
-            <Navbar />
-            <Hero />
-            <About />
-            <Skills />
-            <Experience />
-            <SelectedWorks />
-            <Stats />
-            <Footer />
-          </main>
-        )}
-      </BrowserRouter>
+      <AnimatePresence>
+        {isLoading && <LoadingScreen onComplete={handleIntroComplete} />}
+      </AnimatePresence>
+
+      <main className="min-h-screen bg-bg text-text-primary overflow-x-hidden transition-colors duration-300">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <SelectedWorks />
+        <Stats />
+        <Footer />
+      </main>
     </ThemeProvider>
   );
 }

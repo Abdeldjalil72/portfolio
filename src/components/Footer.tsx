@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Mail, MapPin, Check, Copy, ArrowUpRight, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ContactModal } from './ContactModal';
+
+const ContactModal = lazy(() =>
+  import('./ContactModal').then((m) => ({ default: m.ContactModal }))
+);
 
 // Social contact links
 const GITHUB_URL = "https://github.com/Abdeldjalil72";
@@ -85,12 +88,12 @@ export const Footer: React.FC = () => {
           muted
           loop
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-y-[-1]"
+          className="cosmic-video-theme cosmic-video-footer absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-y-[-1] transition-opacity duration-300"
         >
           <source src="/blackhole.webm" type="video/webm" />
           <source src="/blackhole.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-white/85 md:bg-white/75 dark:bg-black/80 dark:md:bg-black/60 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-bg/35 dark:bg-black/80 dark:md:bg-black/60 transition-colors duration-300" />
         <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-bg to-transparent" />
       </div>
 
@@ -223,10 +226,14 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Direct Contact Modal */}
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-      />
+      {isContactModalOpen && (
+        <Suspense fallback={null}>
+          <ContactModal
+            isOpen={isContactModalOpen}
+            onClose={() => setIsContactModalOpen(false)}
+          />
+        </Suspense>
+      )}
     </footer>
   );
 };

@@ -62,7 +62,7 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} id="home" className="relative min-h-screen flex flex-col justify-between items-center overflow-hidden pt-28 pb-8 px-4">
+    <section ref={containerRef} id="home" className="relative min-h-screen bg-bg flex flex-col justify-between items-center overflow-hidden pt-28 pb-8 px-4 transition-colors duration-300">
       {/* Background Video */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <video
@@ -72,12 +72,12 @@ export const Hero: React.FC = () => {
           muted
           loop
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
+          className="cosmic-video-theme absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300"
         >
           <source src="/blackhole.webm" type="video/webm" />
           <source src="/blackhole.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-white/60 dark:bg-black/20 backdrop-blur-[0.5px] transition-colors duration-300" />
+        <div className="hero-light-vignette absolute inset-0 dark:bg-black/20 dark:backdrop-blur-[0.5px] transition-colors duration-300" />
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg to-transparent" />
       </div>
 
@@ -108,8 +108,8 @@ export const Hero: React.FC = () => {
           A <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block">{roles[roleIndex]}</span> based in Constantine, Algeria.
         </p>
         
-        <p className="blur-in text-sm sm:text-base md:text-lg text-muted max-w-xl mb-8 md:mb-10 px-2 sm:px-0">
-          Specializing in high-concurrency SaaS platforms, distributed healthcare architectures, and applied machine learning research.
+        <p className="blur-in text-sm sm:text-base md:text-lg text-muted max-w-2xl mb-8 md:mb-10 px-2 sm:px-0">
+          Specializing in multi-portal B2B ERP ecosystems, high-concurrency SaaS platforms, distributed clinical architectures, and applied machine learning research.
         </p>
 
         <div className="blur-in flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center w-full max-w-xs sm:max-w-none">
